@@ -106,9 +106,16 @@ export const nextRoundLogic = () => {
 export const checkWinner = (userChoice, computerChoice) => {
   // Tie Game
   if (userChoice === computerChoice) {
-    rockBorder.classList.add('draw');
-    paperBorder.classList.add('draw');
-    scissorBorder.classList.add('draw');
+    // Tie with rocks
+    if (userChoice === 'rock' && computerChoice === 'rock') {
+      rockBorder.classList.add('draw');
+    // Tie with paper
+    } else if (userChoice === 'paper' && computerChoice === 'paper') {
+      paperBorder.classList.add('draw');
+    // Tie with scissors
+    } else if (userChoice === 'scissor' && computerChoice === 'scissor') {
+      scissorBorder.classList.add('draw');
+    } 
   // Rock win over Scissor
   } else if (userChoice === 'rock' && computerChoice === 'scissor') {
     usrPoints += 1;
